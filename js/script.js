@@ -32,7 +32,7 @@ const bombs = generateBombs(16, 1, gameLevel)
 // --------------
 function generateBombs(nBombs, rangeMin, rangeMax) {
     // 3 - genero 16 bombe con numeri casuali in un array vuoto
-
+    // Array vuoto
     const randomNBombsArray = [];
 
     while(randomNBombsArray.length < nBombs) {

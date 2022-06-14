@@ -25,7 +25,34 @@ if(levelDifficulty === '1') {
 }
 
 // Genero le bombe
-const bombs = generateBombs(16, 1, gameLevel)
+const bombs = generateBombs(16, 1, gameLevel);
+console.log(bombs);
+
+// numero tentativi
+const numberAttempts = 3;
+
+// 3 - creo un array per calcolare quanti numeri ha inserito l'utente
+const correctNumbers = []
+console.log(correctNumbers)
+
+let userGame = true
+    while(userGame){
+        // chiedo all'utente di darmi un numero 
+        const userNumber = parseInt(prompt(`Scrivi un numero da 1 a ${gameLevel}`)) 
+        // SE il numero indicato dall'utente è nell'array ha perso
+        if(bombs.includes(userNumber)) {
+            userGame = false
+            alert('Hai perso! Il tuo punteggio è: ' + correctNumbers.length)
+        } 
+        // altrimenti pushiamo nell'array 
+        else if(!correctNumbers.includes (userNumber)) {
+                    correctNumbers.push(userNumber)
+        } else if(correctNumbers.length === numberAttempts) {
+                    alert('Hai vinto! Il tuo punteggio è: '+ correctNumbers.length )
+        }  
+
+        console.log(userNumber);
+    }
 
 // --------------
 // FUNCTIONS
@@ -43,7 +70,7 @@ function generateBombs(nBombs, rangeMin, rangeMax) {
         }
     }
 
-    console.log(randomNBombsArray);
+    return randomNBombsArray;
 }
 
 function getRndInteger(min, max) {
